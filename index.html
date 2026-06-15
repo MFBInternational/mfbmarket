@@ -223,7 +223,7 @@
     color: var(--champagne);
     transform: translateY(-1px);
   }
-  .hero-scroll {   display: none; }
+  .hero-scroll {
     position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
     z-index: 2;
     display: flex; flex-direction: column; align-items: center; gap: 8px;
@@ -458,13 +458,13 @@
     letter-spacing: 0.01em;
   }
   .founder-bio p + p { margin-top: 20px; }
- .founder-markets {
+  .founder-markets {
     margin-top: 44px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 12px;
-}
-.market-tag {
+  }
+  .market-tag {
     font-family: var(--sans);
     font-size: 0.58rem;
     font-weight: 500;
@@ -477,7 +477,7 @@
     text-align: center;
     width: 100%;
     transition: border-color 0.3s, color 0.3s;
-}
+  }
   .market-tag:hover { border-color: var(--champagne); color: var(--champagne); }
 
   /* ── SERVICES ── */
@@ -939,14 +939,34 @@
     nav.scrolled { padding: 14px 24px; }
     .nav-links { display: none; }
     .hamburger { display: flex; }
-   nav {
-  background: rgba(10,10,10,0.96);
-  backdrop-filter: blur(20px);
-}
 
-.nav-links a {
-  color: #faf8f4 !important;
-}
+    nav {
+      background: rgba(10,10,10,0.96);
+      backdrop-filter: blur(20px);
+    }
+
+    .nav-links.mobile-open {
+      display: flex !important;
+      flex-direction: column;
+      position: fixed;
+      top: 72px;
+      right: 0;
+      width: 74%;
+      max-width: 320px;
+      height: calc(100vh - 72px);
+      background: #000000;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 48px 32px;
+      gap: 28px;
+      z-index: 1001;
+      box-shadow: -20px 0 40px rgba(0,0,0,0.35);
+    }
+
+    .nav-links.mobile-open a {
+      color: #faf8f4 !important;
+      font-size: 0.75rem;
+    }
     .tagline-strip { padding: 18px 24px; overflow-x: auto; }
     .services-grid { grid-template-columns: 1fr; }
     .services-header { flex-direction: column; align-items: flex-start; }
@@ -967,6 +987,7 @@
     .contact-section { padding: 80px 24px; }
     footer { padding: 48px 24px; }
     .founder-credentials { grid-template-columns: 1fr 1fr; }
+    .founder-markets { grid-template-columns: repeat(2, 1fr); }
 
     /* Professional mobile hero/header spacing fix */
     .hero {
@@ -1438,25 +1459,13 @@
     nav.classList.toggle('scrolled', window.scrollY > 60);
   }, { passive: true });
 
-/* ── Hamburger (mobile) ── */
-const hamburger = document.getElementById('hamburger');
+  /* ── Hamburger (mobile) ── */
+  const hamburger = document.getElementById('hamburger');
+  const mobileLinks = document.querySelector('.nav-links');
 
-hamburger.addEventListener('click', () => {
-  const links = document.querySelector('.nav-links');
-  const open = links.style.display === 'flex';
-
-  links.style.cssText = open
-    ? ''
-    : 'display:flex;flex-direction:column;position:fixed;top:74px;right:0;width:72%;max-width:320px;height:calc(100vh - 74px);background:rgba(10,10,10,0.98);align-items:flex-start;justify-content:flex-start;padding:48px 32px;gap:28px;z-index:999;box-shadow:-20px 0 40px rgba(0,0,0,0.35);';
-
-  hamburger.setAttribute('aria-expanded', String(!open));
-});
-    const links = document.querySelector('.nav-links');
-    const open  = links.style.display === 'flex';
-    links.style.cssText = open
-  ? ''
-  : 'display:flex;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:#000000;align-items:center;justify-content:center;gap:32px;z-index:999;';
-    hamburger.setAttribute('aria-expanded', String(!open));
+  hamburger.addEventListener('click', () => {
+    const open = mobileLinks.classList.toggle('mobile-open');
+    hamburger.setAttribute('aria-expanded', String(open));
   });
 
   /* ── Intersection Observer — fade-up ── */
@@ -1483,9 +1492,9 @@ hamburger.addEventListener('click', () => {
       const top = target.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top, behavior: 'smooth' });
       /* close mobile menu if open */
-      const links = document.querySelector('.nav-links');
-      if (links.style.display === 'flex' && window.innerWidth < 768) {
-        links.style.cssText = '';
+      if (window.innerWidth < 768) {
+        mobileLinks.classList.remove('mobile-open');
+        hamburger.setAttribute('aria-expanded', 'false');
       }
     });
   });
