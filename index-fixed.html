@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MFB International — Global Advisory Services</title>
+<meta name="description" content="MFB International is a boutique international advisory firm specialising in strategic introductions, market expansion and cross-border growth across the GCC, Europe and North America." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black:     #0a0a0a;
+    --charcoal:  #1a1a1a;
+    --ivory:     #faf8f4;
+    --cream:     #f4f0e8;
+    --champagne: #c9a96e;
+    --gold:      #b8934a;
+    --gold-lt:   #d4aa6a;
+    --warm-grey: #8a8278;
+    --border:    rgba(201,169,110,0.25);
+    --serif:     'Cormorant Garamond', Georgia, serif;
+    --sans:      'Montserrat', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    background: var(--ivory);
+    color: var(--black);
+    font-family: var(--sans);
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--ivory); }
+  ::-webkit-scrollbar-thumb { background: var(--champagne); border-radius: 2px; }
+
+  /* ── SELECTION ── */
+  ::selection { background: var(--champagne); color: var(--ivory); }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px 60px;
+    transition: background 0.5s ease, padding 0.4s ease, box-shadow 0.4s ease;
+  }
+  nav.scrolled {
+    background: rgba(10,10,10,0.96);
+    backdrop-filter: blur(20px);
+    padding: 16px 60px;
+    box-shadow: 0 1px 0 rgba(201,169,110,0.15);
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--ivory);
+    letter-spacing: 0.06em;
+    text-decoration: none;
+  }
+  .nav-logo span {
+    color: var(--champagne);
+    font-weight: 300;
+    font-style: italic;
+    font-size: 0.75rem;
+    display: block;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-top: 1px;
+  }
+  .nav-links {
+    display: flex; align-items: center; gap: 40px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(250,248,244,0.7);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--champagne); }
+  .nav-cta {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--champagne) !important;
+    border: 1px solid rgba(201,169,110,0.5);
+    padding: 10px 24px;
+    transition: background 0.3s, color 0.3s !important;
+  }
+  .nav-cta:hover { background: var(--champagne) !important; color: var(--black) !important; }
+
+  /* hamburger */
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    cursor: pointer; padding: 4px;
+  }
+  .hamburger span {
+    width: 24px; height: 1px;
+    background: var(--ivory);
+    transition: all 0.3s;
+    display: block;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    height: 100vh; min-height: 700px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(170deg, rgba(10,10,10,0.72) 0%, rgba(10,10,10,0.45) 60%, rgba(10,10,10,0.75) 100%),
+      url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1800&q=85&auto=format&fit=crop') center/cover no-repeat;
+    transform: scale(1.04);
+    animation: heroZoom 16s ease-out forwards;
+  }
+  @keyframes heroZoom {
+    0%   { transform: scale(1.04); }
+    100% { transform: scale(1.00); }
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(10,10,10,0.5) 100%);
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    text-align: center; padding: 0 24px;
+    max-width: 900px;
+    animation: heroFade 1.4s ease 0.3s both;
+  }
+  @keyframes heroFade {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow {
+    font-family: var(--sans);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--champagne);
+    margin-bottom: 28px;
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: '';
+    width: 40px; height: 1px;
+    background: rgba(201,169,110,0.5);
+    display: block;
+  }
+  .hero-headline {
+    font-family: var(--serif);
+    font-size: clamp(2.6rem, 6vw, 5.2rem);
+    font-weight: 300;
+    color: var(--ivory);
+    line-height: 1.12;
+    letter-spacing: 0.01em;
+    margin-bottom: 28px;
+  }
+  .hero-headline em {
+    font-style: italic;
+    color: var(--champagne);
+    font-weight: 300;
+  }
+  .hero-sub {
+    font-family: var(--sans);
+    font-size: 1.025rem;
+    font-weight: 300;
+    color: rgba(250,248,244,0.78);
+    letter-spacing: 0.08em;
+    line-height: 2.05;
+    max-width: 620px; margin: 0 auto 48px;
+  }
+  .hero-actions {
+    display: flex; align-items: center; justify-content: center;
+    gap: 20px; flex-wrap: wrap;
+  }
+  .btn-primary {
+    font-family: var(--sans);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--black);
+    background: var(--champagne);
+    padding: 16px 40px;
+    display: inline-block;
+    transition: background 0.3s, transform 0.3s;
+  }
+  .btn-primary:hover { background: var(--gold-lt); transform: translateY(-1px); }
+  .btn-ghost {
+    font-family: var(--sans);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ivory);
+    border: 1px solid rgba(250,248,244,0.35);
+    padding: 16px 40px;
+    display: inline-block;
+    transition: border-color 0.3s, color 0.3s, transform 0.3s;
+  }
+  .btn-ghost:hover {
+    border-color: var(--champagne);
+    color: var(--champagne);
+    transform: translateY(-1px);
+  }
+  .hero-scroll {
+    position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+    z-index: 2;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    animation: heroBounce 2s ease-in-out infinite;
+  }
+  @keyframes heroBounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%       { transform: translateX(-50%) translateY(6px); }
+  }
+  .hero-scroll span {
+    font-family: var(--sans); font-size: 0.55rem; font-weight: 500;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: rgba(201,169,110,0.6);
+  }
+  .hero-scroll-line {
+    width: 1px; height: 36px;
+    background: linear-gradient(to bottom, rgba(201,169,110,0.6), transparent);
+  }
+
+  /* ── TAGLINE STRIP ── */
+  .tagline-strip {
+    background: var(--black);
+    padding: 22px 60px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .tagline-strip-inner {
+    display: flex; align-items: center; gap: 32px;
+    white-space: nowrap;
+  }
+  .tagline-strip-item {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(201,169,110,0.75);
+  }
+  .tagline-strip-dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: rgba(201,169,110,0.35);
+    flex-shrink: 0;
+  }
+
+  /* ── SECTION COMMONS ── */
+  section { padding: 120px 60px; }
+
+  .section-label {
+    font-family: var(--sans);
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--champagne);
+    margin-bottom: 20px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .section-label::after {
+    content: '';
+    width: 40px; height: 1px;
+    background: var(--champagne);
+    opacity: 0.5;
+    display: block;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3.6rem);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: 0.01em;
+    color: var(--black);
+  }
+  .section-title em {
+    font-style: italic;
+    color: var(--charcoal);
+  }
+
+  /* ── ABOUT ── */
+  .about {
+    background: var(--ivory);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 120px 60px;
+  }
+  .about-image-wrap {
+    position: relative;
+  }
+  .about-image {
+    width: 100%; aspect-ratio: 4/5;
+    object-fit: cover;
+    display: block;
+  }
+  .about-image-accent {
+    position: absolute;
+    bottom: -20px; right: -20px;
+    width: 60%; height: 60%;
+    border: 1px solid var(--border);
+    z-index: -1;
+  }
+  .about-text { padding-left: 20px; }
+  .about-body {
+    font-family: var(--serif);
+    font-size: 1.22rem;
+    font-weight: 300;
+    color: var(--charcoal);
+    line-height: 1.85;
+    letter-spacing: 0.01em;
+    margin-top: 36px;
+  }
+  .about-body p + p { margin-top: 24px; }
+  .about-body strong {
+    font-weight: 500;
+    font-style: italic;
+    color: var(--black);
+  }
+  .about-divider {
+    width: 60px; height: 1px;
+    background: var(--champagne);
+    margin: 40px 0;
+    opacity: 0.6;
+  }
+
+  /* ── FOUNDER ── */
+  .founder-section {
+    background: var(--cream);
+    max-width: 100%;
+    padding: 120px 60px;
+  }
+  .founder-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    gap: 100px;
+    align-items: start;
+  }
+  .founder-portrait-wrap {
+    position: relative;
+  }
+  .founder-portrait-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    background: var(--black);
+  }
+  .founder-portrait-frame::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, transparent 60%, rgba(10,10,10,0.35) 100%);
+    z-index: 1;
+  }
+  .founder-portrait-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    transition: transform 0.8s ease;
+  }
+  .founder-portrait-frame:hover img { transform: scale(1.03); }
+  .founder-portrait-border {
+    position: absolute;
+    top: 16px; left: -16px;
+    width: 100%; height: 100%;
+    border: 1px solid var(--border);
+    z-index: -1;
+    pointer-events: none;
+  }
+  .founder-credentials {
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .cred-item {
+    background: var(--cream);
+    padding: 18px 20px;
+    text-align: center;
+  }
+  .cred-value {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--black);
+    letter-spacing: 0.02em;
+    display: block;
+  }
+  .cred-label {
+    font-family: var(--sans);
+    font-size: 0.56rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--warm-grey);
+    display: block;
+    margin-top: 4px;
+  }
+  .founder-text { padding-top: 8px; }
+  .founder-name {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 400;
+    color: var(--black);
+    line-height: 1.18;
+    margin-top: 32px;
+    letter-spacing: 0.01em;
+  }
+  .founder-title-role {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--champagne);
+    margin-top: 12px;
+    margin-bottom: 40px;
+  }
+  .founder-bio {
+    font-family: var(--serif);
+    font-size: 1.14rem;
+    font-weight: 300;
+    color: var(--charcoal);
+    line-height: 1.9;
+    letter-spacing: 0.01em;
+  }
+  .founder-bio p + p { margin-top: 20px; }
+  .founder-markets {
+    margin-top: 44px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .market-tag {
+    font-family: var(--sans);
+    font-size: 0.58rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    border: 1px solid var(--border);
+    padding: 12px;
+    background: var(--ivory);
+    text-align: center;
+    width: 100%;
+    transition: border-color 0.3s, color 0.3s;
+  }
+  .market-tag:hover { border-color: var(--champagne); color: var(--champagne); }
+
+  /* ── SERVICES ── */
+  .services-section {
+    background: var(--black);
+    padding: 120px 60px;
+  }
+  .services-header {
+    max-width: 1300px; margin: 0 auto 80px;
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 40px;
+  }
+  .services-header .section-title { color: #FFFFFF; }
+  .services-header .section-label { color: var(--champagne); }
+  .services-header .section-title em { color: var(--champagne); }
+  .services-subtitle {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 0.06em;
+    color: rgba(250,248,244,0.45);
+    max-width: 300px;
+    text-align: right;
+    line-height: 1.8;
+  }
+  .services-grid {
+    max-width: 1300px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(201,169,110,0.12);
+    border: 1px solid rgba(201,169,110,0.12);
+  }
+  .service-card {
+    background: var(--charcoal);
+    padding: 52px 44px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.4s;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 1px;
+    background: var(--border);
+    transition: background 0.4s;
+  }
+  .service-card:hover { background: #212121; }
+  .service-card:hover::before { background: var(--champagne); }
+  .service-num {
+    font-family: var(--serif);
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: rgba(201,169,110,0.15);
+    letter-spacing: -0.02em;
+    display: block;
+    margin-bottom: 32px;
+    line-height: 1;
+    transition: color 0.4s;
+  }
+  .service-card:hover .service-num { color: rgba(201,169,110,0.3); }
+  .service-name {
+    font-family: var(--serif);
+    font-size: 1.42rem;
+    font-weight: 400;
+    color: var(--ivory);
+    letter-spacing: 0.01em;
+    margin-bottom: 18px;
+    line-height: 1.25;
+  }
+  .service-desc {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 300;
+    color: rgba(250,248,244,0.5);
+    line-height: 1.85;
+    letter-spacing: 0.04em;
+  }
+  .service-line {
+    width: 24px; height: 1px;
+    background: var(--champagne);
+    opacity: 0.4;
+    margin: 28px 0;
+    transition: width 0.4s, opacity 0.4s;
+  }
+  .service-card:hover .service-line { width: 48px; opacity: 0.8; }
+
+  /* ── WHY ── */
+  .why-section {
+    background: var(--ivory);
+    padding: 120px 60px;
+  }
+  .why-header {
+    max-width: 1300px; margin: 0 auto 80px;
+    text-align: center;
+  }
+  .why-header .section-label { justify-content: center; }
+  .why-header .section-label::before {
+    content: '';
+    width: 40px; height: 1px;
+    background: var(--champagne); opacity: 0.5;
+  }
+  .why-header .section-label::after { content: ''; }
+  .why-grid {
+    max-width: 1300px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .why-card {
+    background: var(--ivory);
+    padding: 52px 36px;
+    position: relative;
+    transition: background 0.3s;
+  }
+  .why-card:hover { background: var(--cream); }
+  .why-icon {
+    width: 36px; height: 36px;
+    margin-bottom: 28px;
+    opacity: 0.5;
+  }
+  .why-icon-line {
+    width: 36px; height: 1px;
+    background: var(--champagne);
+    margin-bottom: 28px;
+  }
+  .why-title {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--black);
+    margin-bottom: 16px;
+    letter-spacing: 0.01em;
+  }
+  .why-body {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 300;
+    color: var(--warm-grey);
+    line-height: 1.85;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── ENGAGEMENT AREAS ── */
+  .engagement-section {
+    background: var(--charcoal);
+    padding: 100px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .engagement-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 100%, rgba(201,169,110,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .engagement-inner {
+    max-width: 1300px; margin: 0 auto;
+    text-align: center;
+  }
+  .engagement-inner .section-title { color: var(--ivory); }
+  .engagement-inner .section-label { justify-content: center; }
+  .engagement-inner .section-label::before {
+    content: '';
+    width: 40px; height: 1px;
+    background: var(--champagne); opacity: 0.5;
+  }
+  .engagement-inner .section-label::after { content: ''; }
+  .engagement-list {
+    display: flex; flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
+    margin-top: 60px;
+    border-top: 1px solid rgba(201,169,110,0.15);
+    border-left: 1px solid rgba(201,169,110,0.15);
+  }
+  .engagement-item {
+    flex: 0 0 auto;
+    width: calc(100% / 4);
+    padding: 36px 32px;
+    border-right: 1px solid rgba(201,169,110,0.15);
+    border-bottom: 1px solid rgba(201,169,110,0.15);
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    transition: background 0.35s;
+  }
+  .engagement-item:hover { background: rgba(201,169,110,0.04); }
+  .engagement-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 1px;
+    background: var(--champagne);
+    transition: width 0.4s ease;
+  }
+  .engagement-item:hover::after { width: 100%; }
+  .engagement-num {
+    font-family: var(--serif);
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: rgba(201,169,110,0.4);
+    letter-spacing: 0.12em;
+    display: block;
+    margin-bottom: 14px;
+  }
+  .engagement-name {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: rgba(250,248,244,0.85);
+    letter-spacing: 0.01em;
+    line-height: 1.3;
+  }
+
+  /* ── DIVIDER IMAGE ── */
+  .divider-image {
+    height: 420px;
+    background:
+      linear-gradient(rgba(10,10,10,0.55), rgba(10,10,10,0.55)),
+      url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1800&q=80&auto=format&fit=crop') center/cover no-repeat;
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .divider-quote {
+    font-family: var(--serif);
+    font-size: clamp(1.5rem, 3vw, 2.6rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--ivory);
+    letter-spacing: 0.02em;
+    text-align: center;
+    max-width: 760px;
+    padding: 0 40px;
+    line-height: 1.5;
+  }
+  .divider-quote em {
+    color: var(--champagne);
+    font-style: italic;
+  }
+
+  /* ── CONTACT ── */
+  .contact-section {
+    background: var(--ivory);
+    padding: 120px 60px;
+  }
+  .contact-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: start;
+  }
+  .contact-left { padding-top: 8px; }
+  .contact-body {
+    font-family: var(--serif);
+    font-size: 1.08rem;
+    font-weight: 300;
+    color: var(--charcoal);
+    line-height: 1.9;
+    margin-top: 32px;
+    letter-spacing: 0.01em;
+  }
+  .contact-details {
+    margin-top: 48px;
+    display: flex; flex-direction: column; gap: 18px;
+  }
+  .contact-detail {
+    display: flex; align-items: center; gap: 16px;
+  }
+  .contact-detail-label {
+    font-family: var(--sans);
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--warm-grey);
+    width: 60px; flex-shrink: 0;
+  }
+  .contact-detail-value {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: var(--black);
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .contact-detail-value:hover { color: var(--champagne); }
+
+  /* FORM */
+  .contact-form { display: flex; flex-direction: column; gap: 0; }
+  .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: end;
+}
+  .form-field { position: relative; }
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(10,10,10,0.15);
+    padding: 20px 0 14px;
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: var(--black);
+    letter-spacing: 0.06em;
+    outline: none;
+    transition: border-color 0.3s;
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
+  .form-field textarea {
+    resize: none;
+    height: 120px;
+    line-height: 1.7;
+  }
+  .form-field select { cursor: pointer; background: transparent; }
+  .form-field label {
+    position: absolute; top: 20px; left: 0;
+    font-family: var(--sans);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(10,10,10,0.35);
+    transition: all 0.3s;
+    pointer-events: none;
+  }
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus { border-bottom-color: var(--champagne); }
+  .form-field input:focus + label,
+  .form-field input:not(:placeholder-shown) + label,
+  .form-field select:focus + label,
+  .form-field textarea:focus + label,
+  .form-field textarea:not(:placeholder-shown) + label {
+    top: 4px; font-size: 0.52rem; color: var(--champagne);
+  }
+  .form-field + .form-field { margin-top: 16px; }
+  .form-row .form-field:first-child { padding-right: 20px; }
+  .form-row .form-field:last-child  { padding-left: 20px; }
+  .form-submit {
+    margin-top: 44px;
+    display: flex; align-items: center; gap: 20px;
+  }
+  .form-note {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: rgba(10,10,10,0.35);
+    line-height: 1.6;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    padding: 60px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 40px;
+    border-top: 1px solid rgba(201,169,110,0.12);
+  }
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--ivory);
+    letter-spacing: 0.06em;
+    text-decoration: none;
+  }
+  .footer-logo span {
+    font-size: 0.62rem;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(201,169,110,0.6);
+    letter-spacing: 0.16em;
+    display: block;
+    margin-top: 4px;
+  }
+  .footer-tagline {
+    font-family: var(--sans);
+    font-size: 0.58rem;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: rgba(201,169,110,0.5);
+    text-align: center;
+  }
+  .footer-right {
+    text-align: right;
+  }
+  .footer-links {
+    display: flex; gap: 28px; justify-content: flex-end;
+    list-style: none; margin-bottom: 16px;
+  }
+  .footer-links a {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(250,248,244,0.4);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .footer-links a:hover { color: var(--champagne); }
+  .footer-copy {
+    font-family: var(--sans);
+    font-size: 0.58rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: rgba(250,248,244,0.2);
+  }
+
+  /* ── FADE-IN ANIMATIONS ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .fade-up.delay-1 { transition-delay: 0.15s; }
+  .fade-up.delay-2 { transition-delay: 0.30s; }
+  .fade-up.delay-3 { transition-delay: 0.45s; }
+  .fade-up.delay-4 { transition-delay: 0.60s; }
+  .fade-up.delay-5 { transition-delay: 0.75s; }
+  .fade-up.delay-6 { transition-delay: 0.90s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1100px) {
+    .about { grid-template-columns: 1fr; gap: 60px; padding: 80px 40px; }
+    .about-text { padding-left: 0; }
+    .founder-inner { grid-template-columns: 1fr; gap: 60px; }
+    .founder-portrait-wrap { max-width: 420px; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .engagement-item { width: calc(100% / 2); }
+    .contact-inner { grid-template-columns: 1fr; gap: 60px; }
+  }
+  @media (max-width: 768px) {
+    section { padding: 80px 24px; }
+    nav { padding: 20px 24px; }
+    nav.scrolled { padding: 14px 24px; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+
+    nav {
+      background: rgba(10,10,10,0.96);
+      backdrop-filter: blur(20px);
+    }
+
+    .nav-links.mobile-open {
+      display: flex !important;
+      flex-direction: column;
+      position: fixed;
+      top: 72px;
+      right: 0;
+      width: 74%;
+      max-width: 320px;
+      height: calc(100vh - 72px);
+      background: #000000;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 48px 32px;
+      gap: 28px;
+      z-index: 1001;
+      box-shadow: -20px 0 40px rgba(0,0,0,0.35);
+    }
+
+    .nav-links.mobile-open a {
+      color: #faf8f4 !important;
+      font-size: 0.75rem;
+    }
+    .tagline-strip { padding: 18px 24px; overflow-x: auto; }
+    .services-grid { grid-template-columns: 1fr; }
+    .services-header { flex-direction: column; align-items: flex-start; }
+    .services-subtitle { text-align: left; }
+    .why-grid { grid-template-columns: 1fr; }
+    .engagement-item { width: 100%; }
+    .form-row { grid-template-columns: 1fr; }
+    .form-row .form-field:first-child { padding-right: 0; }
+    .form-row .form-field:last-child  { padding-left: 0; }
+    footer { grid-template-columns: 1fr; text-align: center; gap: 24px; }
+    .footer-right { text-align: center; }
+    .footer-links { justify-content: center; }
+    .about { padding: 80px 24px; }
+    .founder-section { padding: 80px 24px; }
+    .services-section { padding: 80px 24px; }
+    .why-section { padding: 80px 24px; }
+    .engagement-section { padding: 80px 24px; }
+    .contact-section { padding: 80px 24px; }
+    footer { padding: 48px 24px; }
+    .founder-credentials { grid-template-columns: 1fr 1fr; }
+    .founder-markets { grid-template-columns: repeat(2, 1fr); }
+
+    /* Professional mobile hero/header spacing fix */
+    .hero {
+      min-height: 100svh;
+      height: auto;
+      padding-top: 118px;
+      padding-bottom: 80px;
+      align-items: flex-start;
+    }
+
+    .hero-content {
+      padding-top: 56px;
+      max-width: 100%;
+    }
+
+    .hero-eyebrow {
+      margin-bottom: 20px;
+    }
+
+    .hero-headline {
+      font-size: clamp(2.35rem, 12vw, 4.1rem);
+      line-height: 1.08;
+      margin-bottom: 24px;
+    }
+
+    .hero-sub {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      margin-bottom: 36px;
+    }
+
+    .hero-actions {
+      gap: 16px;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      width: min(100%, 360px);
+      text-align: center;
+      padding: 16px 28px;
+    }
+
+    .hero-scroll {
+      display: none;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="mainNav" role="navigation" aria-label="Primary navigation">
+  <a href="/" class="nav-logo" aria-label="MFB International home">
+    MFB International
+    <span>Global Advisory</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#founder">Founder</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Approach</a></li>
+    <li><a href="#contact" class="nav-cta">Book a Consultation</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" aria-label="Open menu" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" aria-label="Hero">
+  <div class="hero-bg" role="img" aria-label="International financial district at dusk"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">MFB International</p>
+    <h1 class="hero-headline">
+      Unlock Strategic Opportunities<br>
+      Across the <em>GCC, Europe</em><br>
+      &amp; North America
+    </h1>
+    <p class="hero-sub">
+      Boutique international advisory for companies, investors and family offices
+      seeking growth, market access and high-value strategic relationships.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Book a Consultation</a>
+      <a href="#services" class="btn-ghost">Explore Services</a>
+      <a href="/MFB-International-2026.pdf" class="btn-ghost" target="_blank" rel="noopener">Download Brochure</a>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- ── TAGLINE STRIP ── -->
+<div class="tagline-strip" aria-hidden="true">
+  <div class="tagline-strip-inner">
+    <span class="tagline-strip-item">Cross-Border Growth</span>
+    <div class="tagline-strip-dot"></div>
+    <span class="tagline-strip-item">Strategic Introductions</span>
+    <div class="tagline-strip-dot"></div>
+    <span class="tagline-strip-item">Market Expansion</span>
+    <div class="tagline-strip-dot"></div>
+    <span class="tagline-strip-item">GCC &bull; Europe &bull; North America</span>
+    <div class="tagline-strip-dot"></div>
+    <span class="tagline-strip-item">mfbmarket.com</span>
+  </div>
+</div>
+
+<!-- ── ABOUT ── -->
+<div id="about" class="about" role="region" aria-labelledby="about-title">
+  <div class="about-image-wrap fade-up">
+    <img
+      class="about-image"
+      src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=85&auto=format&fit=crop"
+      alt="Elegant glass architecture representing international business"
+      loading="lazy"
+    />
+    <div class="about-image-accent" aria-hidden="true"></div>
+  </div>
+  <div class="about-text fade-up delay-2">
+    <p class="section-label" id="about-label">The Firm</p>
+    <h2 class="section-title" id="about-title">
+      Access, Intelligence<br>
+      <em>&amp; Relationships</em>
+    </h2>
+    <div class="about-divider" aria-hidden="true"></div>
+    <div class="about-body">
+      <p>MFB International is a boutique international advisory firm helping ambitious organizations unlock opportunities across the Gulf Cooperation Council, Europe and North America.</p>
+      <p>We specialize in strategic introductions, market expansion and relationship-driven growth initiatives across business, investment, media and professional services.</p>
+      <p>Our approach combines commercial insight, cultural intelligence and trusted international relationships developed over more than a decade of cross-border work.</p>
+      <p><strong>The most valuable opportunities are rarely found through public channels. They are created through trust, credibility and access.</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOUNDER ── -->
+<section id="founder" class="founder-section" aria-labelledby="founder-title">
+  <div class="founder-inner">
+    <div class="founder-portrait-wrap fade-up">
+      <div class="founder-portrait-frame">
+        <img
+          src="https://cdn-chatly-docs.vyro.ai/chatly/3a10abe2-09dd-4f67-a100-1365694ef991.JPG"
+          alt="Maria Filippova Barnachinskaya — Founder, MFB International"
+          loading="lazy"
+        />
+      </div>
+      <div class="founder-portrait-border" aria-hidden="true"></div>
+      <div class="founder-credentials" role="list" aria-label="Founder credentials">
+        <div class="cred-item" role="listitem">
+          <span class="cred-value">10+</span>
+          <span class="cred-label">Years Experience</span>
+        </div>
+        <div class="cred-item" role="listitem">
+          <span class="cred-value">3</span>
+          <span class="cred-label">Languages</span>
+        </div>
+        <div class="cred-item" role="listitem">
+          <span class="cred-value">20+</span>
+          <span class="cred-label">Countries</span>
+        </div>
+        <div class="cred-item" role="listitem">
+          <span class="cred-value" style="font-size:1rem;letter-spacing:0.04em;">GCC&nbsp;&bull;&nbsp;EU&nbsp;&bull;&nbsp;NA</span>
+          <span class="cred-label">Coverage</span>
+        </div>
+      </div>
+    </div>
+    <div class="founder-text fade-up delay-2">
+      <p class="section-label">The Founder</p>
+      <h2 class="section-title founder-name" id="founder-title">
+        Maria Filippova<br>
+        <em>Barnachinskaya</em>
+      </h2>
+      <p class="founder-title-role">Founder &amp; Principal Advisor</p>
+      <div class="founder-bio">
+        <p>Maria Filippova Barnachinskaya is an international business development executive and strategic advisor with experience spanning the GCC, Europe, North America and emerging markets.</p>
+        <p>Over the past decade she has facilitated cross-border partnerships, supported international expansion initiatives and worked alongside investors, family offices, professional service firms and multinational organizations.</p>
+        <p>Fluent in English, Russian and Spanish, Maria combines commercial insight, cultural intelligence and an extensive international network to help ambitious organizations accelerate growth and access new opportunities.</p>
+      </div>
+     <div class="founder-markets" role="list" aria-label="Geographic markets">
+    <span class="market-tag" role="listitem">Kuwait</span>
+    <span class="market-tag" role="listitem">United Arab Emirates</span>
+    <span class="market-tag" role="listitem">Saudi Arabia</span>
+    <span class="market-tag" role="listitem">Qatar</span>
+    <span class="market-tag" role="listitem">Turkey</span>
+    <span class="market-tag" role="listitem">Egypt</span>
+    <span class="market-tag" role="listitem">United Kingdom</span>
+    <span class="market-tag" role="listitem">Germany</span>
+    <span class="market-tag" role="listitem">Switzerland</span>
+    <span class="market-tag" role="listitem">Russia</span>
+    <span class="market-tag" role="listitem">Mexico</span>
+    <span class="market-tag" role="listitem">United States</span>
+</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section id="services" class="services-section" aria-labelledby="services-title">
+  <div class="services-header">
+    <div>
+      <p class="section-label">What We Offer</p>
+      <h2 class="section-title" id="services-title">
+        Our<br><em>Services</em>
+      </h2>
+    </div>
+    <p class="services-subtitle">
+      Each engagement is tailored to the specific goals, markets and relationships of the client.
+    </p>
+  </div>
+  <div class="services-grid" role="list">
+
+    <article class="service-card fade-up" role="listitem">
+      <span class="service-num" aria-hidden="true">01</span>
+      <div class="service-line" aria-hidden="true"></div>
+      <h3 class="service-name">Strategic Introductions</h3>
+      <p class="service-desc">Qualified introductions to investors, decision-makers, family offices and strategic partners across key international markets.</p>
+    </article>
+
+    <article class="service-card fade-up delay-1" role="listitem">
+      <span class="service-num" aria-hidden="true">02</span>
+      <div class="service-line" aria-hidden="true"></div>
+      <h3 class="service-name">Market Entry &amp; Expansion</h3>
+      <p class="service-desc">Guidance and hands-on support for companies entering GCC and international markets with confidence and credibility.</p>
+    </article>
+
+    <article class="service-card fade-up delay-2" role="listitem">
+      <span class="service-num" aria-hidden="true">03</span>
+      <div class="service-line" aria-hidden="true"></div>
+      <h3 class="service-name">Business Development Advisory</h3>
+      <p class="service-desc">Growth strategy, opportunity identification and relationship development tailored to your commercial objectives.</p>
+    </article>
+
+    <article class="service-card fade-up delay-3" role="listitem">
+      <span class="service-num" aria-hidden="true">04</span>
+      <div class="service-line" aria-hidden="true"></div>
+      <h3 class="service-name">Market Representation</h3>
+      <p class="service-desc">Acting as a trusted, credible representative in target markets on behalf of international clients and organizations.</p>
+    </article>
+
+    <article class="service-card fade-up delay-4" role="listitem">
+      <span class="service-num" aria-hidden="true">05</span>
+      <div class="service-line" aria-hidden="true"></div>
+      <h3 class="service-name">Investor &amp; Family Office Access</h3>
+      <p class="service-desc">Connecting qualified opportunities with relevant capital partners, family offices and private investment networks.</p>
+    </article>
+
+    <article class="service-card fade-up delay-5" role="listitem">
+      <span class="service-num" aria-hidden="true">06</span>
+      <div class="service-line" aria-hidden="true"></div>
+      <h3 class="service-name">Cross-Border Partnerships</h3>
+      <p class="service-desc">Building strategic relationships that support long-term international growth, aligned to each client's vision and market.</p>
+    </article>
+
+  </div>
+</section>
+
+<!-- ── WHY ── -->
+<section id="why" class="why-section" aria-labelledby="why-title">
+  <div class="why-header">
+    <p class="section-label" aria-hidden="true">Our Approach</p>
+    <h2 class="section-title" id="why-title">
+      Why Clients<br><em>Work With Us</em>
+    </h2>
+  </div>
+  <div class="why-grid" role="list">
+
+    <div class="why-card fade-up" role="listitem">
+      <div class="why-icon-line" aria-hidden="true"></div>
+      <h3 class="why-title">International Perspective</h3>
+      <p class="why-body">Genuine experience across markets, cultures and industries — not theoretical frameworks. Real commercial context built over a decade of cross-border work.</p>
+    </div>
+
+    <div class="why-card fade-up delay-1" role="listitem">
+      <div class="why-icon-line" aria-hidden="true"></div>
+      <h3 class="why-title">Trusted Relationships</h3>
+      <p class="why-body">Access to decision-makers, investors and partners earned through years of credible engagement — not databases or cold outreach.</p>
+    </div>
+
+    <div class="why-card fade-up delay-2" role="listitem">
+      <div class="why-icon-line" aria-hidden="true"></div>
+      <h3 class="why-title">Strategic Access</h3>
+      <p class="why-body">We open doors that others cannot. Our introductions are qualified, contextual and aligned to the specific objectives of each client.</p>
+    </div>
+
+    <div class="why-card fade-up delay-3" role="listitem">
+      <div class="why-icon-line" aria-hidden="true"></div>
+      <h3 class="why-title">Hands-On Execution</h3>
+      <p class="why-body">We work directly alongside clients throughout every engagement. No layers, no junior teams. Senior advisory from inception to outcome.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── ENGAGEMENT AREAS ── -->
+<section class="engagement-section" aria-labelledby="engagement-title">
+  <div class="engagement-inner">
+    <p class="section-label">Where We Work</p>
+    <h2 class="section-title" id="engagement-title">
+      Selected<br><em>Engagement Areas</em>
+    </h2>
+    <div class="engagement-list" role="list">
+
+      <div class="engagement-item fade-up" role="listitem">
+        <span class="engagement-num" aria-hidden="true">01</span>
+        <span class="engagement-name">GCC Market Entry</span>
+      </div>
+      <div class="engagement-item fade-up delay-1" role="listitem">
+        <span class="engagement-num" aria-hidden="true">02</span>
+        <span class="engagement-name">Strategic Partnerships</span>
+      </div>
+      <div class="engagement-item fade-up delay-2" role="listitem">
+        <span class="engagement-num" aria-hidden="true">03</span>
+        <span class="engagement-name">Business Development Support</span>
+      </div>
+      <div class="engagement-item fade-up delay-3" role="listitem">
+        <span class="engagement-num" aria-hidden="true">04</span>
+        <span class="engagement-name">Investor Introductions</span>
+      </div>
+      <div class="engagement-item fade-up delay-4" role="listitem">
+        <span class="engagement-num" aria-hidden="true">05</span>
+        <span class="engagement-name">Family Office Access</span>
+      </div>
+      <div class="engagement-item fade-up delay-5" role="listitem">
+        <span class="engagement-num" aria-hidden="true">06</span>
+        <span class="engagement-name">Market Representation</span>
+      </div>
+      <div class="engagement-item fade-up delay-6" role="listitem">
+        <span class="engagement-num" aria-hidden="true">07</span>
+        <span class="engagement-name">Cross-Border Expansion</span>
+      </div>
+      <div class="engagement-item fade-up" role="listitem" style="border-right:1px solid rgba(201,169,110,0.15);">
+        <span class="engagement-num" aria-hidden="true">&nbsp;</span>
+        <span class="engagement-name" style="color:rgba(201,169,110,0.25);font-style:italic;font-size:0.9rem;">By Invitation &amp; Referral</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── DIVIDER IMAGE ── -->
+<div class="divider-image" role="img" aria-label="Elegant private boardroom">
+  <blockquote class="divider-quote">
+    "The most valuable opportunities are rarely found through public channels. They are created through <em>trust, credibility and access.</em>"
+  </blockquote>
+</div>
+
+<!-- ── CONTACT ── -->
+<section id="contact" class="contact-section" aria-labelledby="contact-title">
+  <div class="contact-inner">
+    <div class="contact-left fade-up">
+      <p class="section-label">Get In Touch</p>
+      <h2 class="section-title" id="contact-title">
+        Let's Explore<br>
+        <em>What's Possible</em>
+      </h2>
+      <p class="contact-body">
+        Whether you are entering a new market, seeking strategic introductions or exploring international growth opportunities, we would be pleased to discuss how MFB International may assist.
+      </p>
+      <div class="contact-details">
+        <div class="contact-detail">
+          <span class="contact-detail-label">Web</span>
+          <a href="https://www.mfbmarket.com" class="contact-detail-value" target="_blank" rel="noopener">mfbmarket.com</a>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Email</span>
+          <a href="mailto:hello@mfbmarket.com" class="contact-detail-value">hello@mfbmarket.com</a>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Markets</span>
+          <span class="contact-detail-value">GCC &bull; Asia &bull; Europe &bull; North America &bull; LATAM</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Deck</span>
+          <a href="/MFB-International-2026.pdf" class="contact-detail-value" target="_blank" rel="noopener">Download Company Brochure</a>
+        </div>
+      </div>
+    </div>
+    <div class="fade-up delay-2">
+      <form
+        class="contact-form"
+        action="https://formsubmit.co/hello@mfbmarket.com"
+        method="POST"
+        novalidate
+        aria-label="Contact form"
+      >
+        <input type="hidden" name="_subject" value="New Enquiry — MFB International" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" value="https://www.mfbmarket.com/thank-you" />
+
+        <div class="form-row">
+          <div class="form-field">
+            <input type="text" id="first-name" name="first_name" placeholder=" " required autocomplete="given-name" />
+            <label for="first-name">First Name</label>
+          </div>
+          <div class="form-field">
+            <input type="text" id="last-name" name="last_name" placeholder=" " required autocomplete="family-name" />
+            <label for="last-name">Last Name</label>
+          </div>
+        </div>
+
+        <div class="form-field" style="margin-top:16px;">
+          <input type="email" id="email" name="email" placeholder=" " required autocomplete="email" />
+          <label for="email">Email Address</label>
+        </div>
+
+        <div class="form-field" style="margin-top:16px;">
+          <input type="text" id="organisation" name="organisation" placeholder=" " autocomplete="organization" />
+          <label for="organisation">Organisation</label>
+        </div>
+
+        <div class="form-field" style="margin-top:16px;">
+          <select id="enquiry" name="enquiry_type" required>
+            <option value="" disabled selected></option>
+            <option>Strategic Introductions</option>
+            <option>Market Entry &amp; Expansion</option>
+            <option>Business Development Advisory</option>
+            <option>Market Representation</option>
+            <option>Investor &amp; Family Office Access</option>
+            <option>Cross-Border Partnerships</option>
+            <option>General Enquiry</option>
+          </select>
+          <label for="enquiry">Nature of Enquiry</label>
+        </div>
+
+        <div class="form-field" style="margin-top:16px;">
+          <textarea id="message" name="message" placeholder=" " required></textarea>
+          <label for="message">Message</label>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="btn-primary" style="border:none;cursor:pointer;">
+            Submit Enquiry
+          </button>
+          <p class="form-note">
+            All enquiries are treated<br>with strict confidentiality.
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer role="contentinfo">
+  <a href="/" class="footer-logo" aria-label="MFB International home">
+    MFB International
+    <span>Global Advisory</span>
+  </a>
+  <p class="footer-tagline">
+    Cross-Border Growth &bull; Strategic Introductions &bull; Market Expansion
+  </p>
+  <div class="footer-right">
+    <ul class="footer-links" aria-label="Footer navigation">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#founder">Founder</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2025 MFB International. mfbmarket.com. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  /* ── Sticky Nav ── */
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  /* ── Hamburger (mobile) ── */
+  const hamburger = document.getElementById('hamburger');
+  const mobileLinks = document.querySelector('.nav-links');
+
+  hamburger.addEventListener('click', () => {
+    const open = mobileLinks.classList.toggle('mobile-open');
+    hamburger.setAttribute('aria-expanded', String(open));
+  });
+
+  /* ── Intersection Observer — fade-up ── */
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+  );
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  /* ── Smooth anchor offsets for fixed nav ── */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      const offset = 80;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+      /* close mobile menu if open */
+      if (window.innerWidth < 768) {
+        mobileLinks.classList.remove('mobile-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+</script>
+</body>
+</html>
