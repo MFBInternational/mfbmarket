@@ -223,7 +223,7 @@
     color: var(--champagne);
     transform: translateY(-1px);
   }
-  .hero-scroll {
+  .hero-scroll {   display: none; }
     position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
     z-index: 2;
     display: flex; flex-direction: column; align-items: center; gap: 8px;
@@ -771,10 +771,11 @@
   /* FORM */
   .contact-form { display: flex; flex-direction: column; gap: 0; }
   .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-  }
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: end;
+}
   .form-field { position: relative; }
   .form-field input,
   .form-field select,
