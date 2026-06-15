@@ -458,11 +458,13 @@
     letter-spacing: 0.01em;
   }
   .founder-bio p + p { margin-top: 20px; }
-  .founder-markets {
+ .founder-markets {
     margin-top: 44px;
-    display: flex; flex-wrap: wrap; gap: 10px;
-  }
-  .market-tag {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+.market-tag {
     font-family: var(--sans);
     font-size: 0.58rem;
     font-weight: 500;
@@ -470,10 +472,12 @@
     text-transform: uppercase;
     color: var(--charcoal);
     border: 1px solid var(--border);
-    padding: 9px 18px;
+    padding: 12px;
     background: var(--ivory);
+    text-align: center;
+    width: 100%;
     transition: border-color 0.3s, color 0.3s;
-  }
+}
   .market-tag:hover { border-color: var(--champagne); color: var(--champagne); }
 
   /* ── SERVICES ── */
@@ -1148,7 +1152,6 @@
     <span class="market-tag" role="listitem">Russia</span>
     <span class="market-tag" role="listitem">Mexico</span>
     <span class="market-tag" role="listitem">United States</span>
-    <span class="market-tag" role="listitem">Canada</span>
 </div>
     </div>
   </div>
