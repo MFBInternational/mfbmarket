@@ -805,8 +805,19 @@
     height: 120px;
     line-height: 1.7;
   }
-  .form-field select { cursor: pointer; background: transparent; }
-  .form-field label {
+.form-field select {
+    cursor: pointer;
+    background: transparent;
+    padding-top: 34px;
+    padding-bottom: 14px;
+    min-height: 62px;
+}
+
+.form-field select + label {
+    top: 4px;
+    font-size: 0.52rem;
+    color: var(--champagne);
+}  .form-field label {
     position: absolute; top: 20px; left: 0;
     font-family: var(--sans);
     font-size: 0.62rem;
