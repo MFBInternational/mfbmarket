@@ -385,11 +385,11 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top;
+    object-position: center 22%;
     display: block;
     transition: transform 0.8s ease;
   }
-  .founder-portrait-frame:hover img { transform: scale(1.03); }
+  .founder-portrait-frame:hover img { transform: scale(1.02); }
   .founder-portrait-border {
     position: absolute;
     top: 16px; left: -16px;
@@ -772,6 +772,61 @@
   }
   .contact-detail-value:hover { color: var(--champagne); }
 
+  /* CALENDLY BOOKING PANEL */
+  .booking-panel {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    padding: 28px;
+    box-shadow: 0 24px 60px rgba(10,10,10,0.06);
+  }
+  .booking-panel-title,
+  .form-panel-title {
+    font-family: var(--serif);
+    font-size: 1.55rem;
+    font-weight: 400;
+    color: var(--black);
+    letter-spacing: 0.01em;
+    margin-bottom: 8px;
+  }
+  .booking-panel-subtitle,
+  .form-panel-subtitle {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    line-height: 1.8;
+    color: var(--warm-grey);
+    margin-bottom: 22px;
+  }
+  .calendly-inline-widget {
+    min-width: 320px;
+    height: 700px;
+    background: var(--ivory);
+    border: 1px solid rgba(201,169,110,0.18);
+  }
+  .booking-fallback {
+    margin-top: 18px;
+    font-family: var(--sans);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .booking-fallback a {
+    color: var(--champagne);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(201,169,110,0.45);
+    padding-bottom: 4px;
+  }
+  .contact-form-panel {
+    max-width: 1100px;
+    margin: 70px auto 0;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    padding: 44px;
+    box-shadow: 0 24px 60px rgba(10,10,10,0.04);
+  }
+
   /* FORM */
   .contact-form { display: flex; flex-direction: column; gap: 0; }
   .form-row {
@@ -1003,6 +1058,9 @@
     .why-section { padding: 80px 24px; }
     .engagement-section { padding: 80px 24px; }
     .contact-section { padding: 80px 24px; }
+    .booking-panel { padding: 22px; }
+    .calendly-inline-widget { height: 720px; }
+    .contact-form-panel { margin-top: 42px; padding: 28px 22px; }
     footer { padding: 48px 24px; }
     .founder-credentials { grid-template-columns: 1fr 1fr; }
     .founder-markets { grid-template-columns: repeat(2, 1fr); }
@@ -1381,67 +1439,92 @@
         </div>
       </div>
     </div>
+
     <div class="fade-up delay-2">
-<form
-  class="contact-form"
-  action="https://formsubmit.co/hello@mfbmarket.com"
-  method="POST"
-  novalidate
-  aria-label="Contact form"
->
-  <input type="hidden" name="_subject" value="New Enquiry — MFB International" />
-  <input type="hidden" name="_captcha" value="false" />
-<input type="hidden" name="_next" value="https://www.mfbmarket.com" />
-        <div class="form-row">
-          <div class="form-field">
-            <input type="text" id="first-name" name="first_name" placeholder=" " required autocomplete="given-name" />
-            <label for="first-name">First Name</label>
-          </div>
-          <div class="form-field">
-            <input type="text" id="last-name" name="last_name" placeholder=" " required autocomplete="family-name" />
-            <label for="last-name">Last Name</label>
-          </div>
+      <div class="booking-panel">
+        <h3 class="booking-panel-title">Schedule a Call</h3>
+        <p class="booking-panel-subtitle">
+          Select a convenient time for a confidential introductory call with MFB International.
+        </p>
+        <!-- Calendly inline widget begin -->
+        <div
+          class="calendly-inline-widget"
+          data-url="https://calendly.com/hello-mfbmarket/30min?hide_gdpr_banner=1&primary_color=c9a96e&text_color=0a0a0a"
+          style="min-width:320px;height:700px;">
         </div>
-
-        <div class="form-field" style="margin-top:16px;">
-          <input type="email" id="email" name="email" placeholder=" " required autocomplete="email" />
-          <label for="email">Email Address</label>
-        </div>
-
-        <div class="form-field" style="margin-top:16px;">
-          <input type="text" id="organisation" name="organisation" placeholder=" " autocomplete="organization" />
-          <label for="organisation">Organisation</label>
-        </div>
-
-        <div class="form-field" style="margin-top:16px;">
-          <select id="enquiry" name="enquiry_type" required>
-            <option value="" disabled selected></option>
-            <option>Strategic Introductions</option>
-            <option>Market Entry &amp; Expansion</option>
-            <option>Business Development Advisory</option>
-            <option>Market Representation</option>
-            <option>Investor &amp; Family Office Access</option>
-            <option>Cross-Border Partnerships</option>
-            <option>General Enquiry</option>
-          </select>
-          <label for="enquiry">Nature of Enquiry</label>
-        </div>
-
-        <div class="form-field" style="margin-top:16px;">
-          <textarea id="message" name="message" placeholder=" " required></textarea>
-          <label for="message">Message</label>
-        </div>
-
-        <div class="form-submit">
-          <button type="submit" class="btn-primary" style="border:none;cursor:pointer;">
-            Submit Enquiry
-          </button>
-          <p class="form-note">
-            All enquiries are treated<br>with strict confidentiality.
-          </p>
-        </div>
-      </form>
+        <!-- Calendly inline widget end -->
+        <p class="booking-fallback">
+          <a href="https://calendly.com/hello-mfbmarket/30min" target="_blank" rel="noopener">Open booking page in a new tab</a>
+        </p>
+      </div>
     </div>
+  </div>
+
+  <div class="contact-form-panel fade-up delay-2">
+    <h3 class="form-panel-title">Send an Enquiry</h3>
+    <p class="form-panel-subtitle">
+      Prefer to write first? Submit your details and MFB International will respond by email.
+    </p>
+    <form
+      class="contact-form"
+      action="https://formsubmit.co/hello@mfbmarket.com"
+      method="POST"
+      novalidate
+      aria-label="Contact form"
+    >
+      <input type="hidden" name="_subject" value="New Enquiry — MFB International" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value="https://www.mfbmarket.com" />
+
+      <div class="form-row">
+        <div class="form-field">
+          <input type="text" id="first-name" name="first_name" placeholder=" " required autocomplete="given-name" />
+          <label for="first-name">First Name</label>
+        </div>
+        <div class="form-field">
+          <input type="text" id="last-name" name="last_name" placeholder=" " required autocomplete="family-name" />
+          <label for="last-name">Last Name</label>
+        </div>
+      </div>
+
+      <div class="form-field" style="margin-top:16px;">
+        <input type="email" id="email" name="email" placeholder=" " required autocomplete="email" />
+        <label for="email">Email Address</label>
+      </div>
+
+      <div class="form-field" style="margin-top:16px;">
+        <input type="text" id="organisation" name="organisation" placeholder=" " autocomplete="organization" />
+        <label for="organisation">Organisation</label>
+      </div>
+
+      <div class="form-field" style="margin-top:16px;">
+        <select id="enquiry" name="enquiry_type" required>
+          <option value="" disabled selected></option>
+          <option>Strategic Introductions</option>
+          <option>Market Entry &amp; Expansion</option>
+          <option>Business Development Advisory</option>
+          <option>Market Representation</option>
+          <option>Investor &amp; Family Office Access</option>
+          <option>Cross-Border Partnerships</option>
+          <option>General Enquiry</option>
+        </select>
+        <label for="enquiry">Nature of Enquiry</label>
+      </div>
+
+      <div class="form-field" style="margin-top:16px;">
+        <textarea id="message" name="message" placeholder=" " required></textarea>
+        <label for="message">Message</label>
+      </div>
+
+      <div class="form-submit">
+        <button type="submit" class="btn-primary" style="border:none;cursor:pointer;">
+          Submit Enquiry
+        </button>
+        <p class="form-note">
+          All enquiries are treated<br>with strict confidentiality.
+        </p>
+      </div>
+    </form>
   </div>
 </section>
 
@@ -1464,6 +1547,8 @@
     <p class="footer-copy">&copy; 2025 MFB International. mfbmarket.com. All rights reserved.</p>
   </div>
 </footer>
+
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
 <script>
   /* ── Sticky Nav ── */
@@ -1511,6 +1596,6 @@
       }
     });
   });
-<script
+</script>
 </body>
 </html>
